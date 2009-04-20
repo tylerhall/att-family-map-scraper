@@ -1,19 +1,9 @@
 <?PHP
-    // Sample Usage
-    // $fm = new FamilyMap();
-    // $coords = $fm->locate('1234567890', 'mypassword');
-
     class FamilyMap
     {
         const URL_BASE  = 'https://familymap.att.com/finder-wap-att/';
         const URL_LOGIN = 'https://familymap.att.com/finder-wap-att/login.htm';
         const URL_MAIN  = 'https://familymap.att.com/finder-wap-att/main.htm';
-
-        // const FE_KEY    = '';
-        // const FE_SECRET = '';
-        //
-        // const FE_ACCESS_TOKEN  = '';
-        // const FE_ACCESS_SECRET = '';
 
         private $lastURL;
 
@@ -52,17 +42,7 @@
             // 8 = map lat
             $info = explode(',', $img);
 
-            $this->updateFireEagle($info[1], $info[0]);
             return array('lat' => $info[1], 'lng' => $info[0]);
-        }
-
-        private function updateFireEagle($lat, $lng)
-        {
-            // You'll need to download and include Fire Eagle's PHP API Kit to update Fire Eagle.
-            // Available here: http://fireeagle.yahoo.net/developer/code/php
-
-            // $fe = new FireEagle(FamilyMap::FE_KEY, FamilyMap::FE_SECRET, FamilyMap::FE_ACCESS_TOKEN, FamilyMap::FE_ACCESS_SECRET);
-            // $fe->update(array('q' => "$lat, $lng"));
         }
 
         private function curl($url, $referer = null, $post = null, $return_header = false)
